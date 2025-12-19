@@ -2,7 +2,7 @@
 @import url("./assets/css/font.css");
 
 :root {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,6 +14,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: "Oxanium", sans-serif;
+}
+
+img {
+  width: 100%;
 }
 
 a {
