@@ -4,7 +4,7 @@ export default function NavBar() {
   return (
     <div className="Navbar">
       <h1>NetWave</h1>
-      <p>work in progress</p>
+      <p>Coming Soon</p>
       <img src={image} alt="" />
     </div>
   );
