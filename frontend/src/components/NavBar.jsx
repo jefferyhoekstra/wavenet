@@ -1,4 +1,4 @@
-import image from "../assets/images/8.gif";
+import image from "../assets/images/4.gif";
 
 export default function NavBar() {
   return (
