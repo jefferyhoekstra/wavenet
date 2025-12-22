@@ -27,14 +27,14 @@ export default function FormComponent({
           onChange={handleOnChange}
           value={formData.password}
         />
-        {/* <button>{currentPage === "login" ? "Login" : "Register"}</button> */}
+        <button>{currentPage === "login" ? "Login" : "Register"}</button>
       </form>
       <p>{responseMessage}</p>
-      {currentPage === "login" ? (
+      {/* {currentPage === "login" ? (
         <Link to={"/react-vite-deploy/register"}>Register now</Link>
       ) : (
         <Link to={"/react-vite-deploy"}>Login now</Link>
-      )}
+      )} */}
     </div>
   );
 }
