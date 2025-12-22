@@ -4,6 +4,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL || "https://wavenet-backend.vercel.app"
+).replace(/\/$/, "");
+
 export default function Login() {
   const initalFormData = { username: "", password: "" };
   // states
@@ -21,12 +25,9 @@ export default function Login() {
 
   const handleOnLogin = async () => {
     try {
-      const response = await axios.post(
-        "https://wavenet-backend.vercel.app/login",
-        formData
-      );
+      const response = await axios.post(`${API_BASE_URL}/login`, formData);
       Cookies.set("jwt-authorization", response.data.token);
-      navigate("/react-vite-deploy/contacts");
+      navigate("/contacts");
 
       setResponseMessage(response.data.message);
     } catch (error) {

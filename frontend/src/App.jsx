@@ -1,5 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 // ------- CSS ------- \\\
 import "./App.css";
 
@@ -15,18 +19,27 @@ function App() {
   return (
     <>
       <div className="bg">
-        <NavBar />
         <Router>
+          <NavBar />
           <Routes>
-            <Route path="/react-vite-deploy" element={<LoginPage />} />
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/contacts" element={<ContactsApp />} />
+
+            {/* Backwards-compatible paths */}
+            <Route
+              path="/react-vite-deploy"
+              element={<Navigate to="/" replace />}
+            />
             <Route
               path="/react-vite-deploy/register"
-              element={<RegisterPage />}
+              element={<Navigate to="/register" replace />}
             />
             <Route
               path="/react-vite-deploy/contacts"
-              element={<ContactsApp />}
+              element={<Navigate to="/contacts" replace />}
             />
+
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Router>

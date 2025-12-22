@@ -6,20 +6,33 @@ import { jwtDecode } from "jwt-decode";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL || "https://wavenet-backend.vercel.app"
+).replace(/\/$/, "");
+
 export default function ContactsApp() {
   const [currentUser, setCurrentUser] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const jwtToken = Cookies.get("jwt-authorization");
-    const decodedToken = jwtDecode(jwtToken);
-    console.log(decodedToken);
-    setCurrentUser(decodedToken.username);
+    if (!jwtToken) {
+      navigate("/");
+      return;
+    }
+    try {
+      const decodedToken = jwtDecode(jwtToken);
+      console.log(decodedToken);
+      setCurrentUser(decodedToken.username);
+    } catch (e) {
+      Cookies.remove("jwt-authorization");
+      navigate("/");
+    }
   }, []);
 
   const handleLogout = () => {
     Cookies.remove("jwt-authorization");
-    navigate("/react-vite-deploy");
+    navigate("/");
   };
   /////////////////////////////////////////////////////////////////////////////
   //States
@@ -43,7 +56,7 @@ export default function ContactsApp() {
   //GET Data from DB handler
   const handleContactsDB = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/contacts");
+      const response = await axios.get(`${API_BASE_URL}/contacts`);
       // console.log(response);
       setContactsData(() => response.data);
     } catch (error) {
@@ -72,7 +85,7 @@ export default function ContactsApp() {
         setIsEditing(false);
       } else {
         await axios
-          .post("https://wavenet-backend.vercel.app/contacts", formData)
+          .post(`${API_BASE_URL}/contacts`, formData)
           .then((response) => {
             setPostResponse(response.data);
             console.log(response);
@@ -94,9 +107,7 @@ export default function ContactsApp() {
   //Handle to delete on contact by id
   const handleOnDelete = async (id) => {
     try {
-      const response = await axios.delete(
-        `https://wavenet-backend.vercel.app/contacts/${id}`
-      );
+      const response = await axios.delete(`${API_BASE_URL}/contacts/${id}`);
       setPostResponse(response.data);
       console.log(response);
     } catch (error) {
@@ -107,9 +118,7 @@ export default function ContactsApp() {
   //Handle the edition of one contact by its id
   const handleOnEdit = async (id) => {
     try {
-      const contactToEdit = await axios.get(
-        `https://wavenet-backend.vercel.app/contacts/${id}`
-      );
+      const contactToEdit = await axios.get(`${API_BASE_URL}/contacts/${id}`);
       console.log(contactToEdit);
       setFormData({
         name: contactToEdit.data.name,
@@ -129,7 +138,7 @@ export default function ContactsApp() {
   const handleOnUpdate = async (id) => {
     try {
       const result = await axios.patch(
-        `https://wavenet-backend.vercel.app/contacts/${id}`,
+        `${API_BASE_URL}/contacts/${id}`,
         formData
       );
       setPostResponse({ message: result.data.message, date: result.data.date });
