@@ -1,5 +1,7 @@
 /* import other css */
 @import url("./assets/css/font.css");
+@import url("./assets/css/FormComponent.css");
+@import url("./assets/css/background.css");
 
 :root {
   font-family: "Inter", sans-serif;
@@ -41,9 +43,18 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+/* Ensure the React root can center its children */
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {

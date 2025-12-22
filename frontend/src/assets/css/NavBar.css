@@ -1,0 +1,11 @@
+.navbar {
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar h1 {
+  padding-bottom: 0em;
+}

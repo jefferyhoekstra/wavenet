@@ -1,0 +1,43 @@
+/* FormComponent styling (CSS-only, no JSX changes)
+   Avoids :has() so it works reliably across browsers.
+   This targets only the login/register form by matching inputs named
+   "username" and "password".
+*/
+
+form > input[name="username"],
+form > input[name="password"] {
+  width: min(420px, 100%);
+  display: block;
+  margin: 0 auto 12px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #888;
+  background: #1a1a1a;
+  color: rgba(255, 255, 255, 1);
+  font: inherit;
+}
+
+form > input[name="username"]:focus,
+form > input[name="password"]:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+/* Button immediately after the password input */
+form > input[name="password"] + button {
+  width: min(420px, 100%);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Message and link that come right after the form in FormComponent */
+form + p {
+  max-width: 420px;
+  margin: 10px auto 0;
+}
+
+form + p + a {
+  display: inline-block;
+  margin-top: 8px;
+}

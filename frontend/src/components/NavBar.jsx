@@ -1,11 +1,14 @@
-import image from "../assets/images/4.gif";
+// CSS
+import "../assets/css/NavBar.css";
 
+// IMAGES
+
+// CODE
 export default function NavBar() {
   return (
-    <div className="Navbar">
+    <div className="navbar">
       <h1>NetWave</h1>
-      <p>A blogsite coming soon!</p>
-      <img src={image} alt="" />
+      <p>Work in progress</p>
     </div>
   );
 }
