@@ -9,8 +9,8 @@ export default function ContactForm({
   isEditing,
 }) {
   return (
-    <div>
-      <form onSubmit={handleOnSubmit}>
+    <section className="contact-form" aria-label="Contact form">
+      <form className="contact-form-inner" onSubmit={handleOnSubmit}>
         <label htmlFor="name">Name: </label>
         <input
           type="text"
@@ -67,6 +67,6 @@ export default function ContactForm({
         <br />
         <button>{isEditing ? "Editing" : "Submit"}</button>
       </form>
-    </div>
+    </section>
   );
 }

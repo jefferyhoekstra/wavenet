@@ -6,7 +6,7 @@ export default function ContactsCardsContainer({
   handleOnEdit,
 }) {
   return (
-    <div>
+    <section className="contacts-cards" aria-label="Contacts">
       {contacts.map((contactItem) => (
         <ContactCard
           key={contactItem._id}
@@ -15,6 +15,6 @@ export default function ContactsCardsContainer({
           handleOnEdit={handleOnEdit}
         />
       ))}
-    </div>
+    </section>
   );
 }

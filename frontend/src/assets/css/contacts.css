@@ -1,0 +1,164 @@
+/* Contacts page layout + cards (accessible + responsive)
+   Uses existing color palette: #000000, #1a1a1a, #888, #646cff
+*/
+
+.contacts-app {
+  width: 100%;
+  max-width: 1100px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  /* Keep within viewport height and allow internal scrolling if needed */
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.contacts-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.contacts-title {
+  margin: 0;
+  font-size: 1.7em;
+}
+
+.contacts-logout {
+  white-space: nowrap;
+}
+
+.contacts-status {
+  max-width: 720px;
+  margin: 8px auto 4px;
+  color: #646cff;
+}
+
+/* Form */
+.contact-form {
+  width: 100%;
+  margin: 0 auto 10px;
+  padding: 12px;
+  border: 1px solid #888;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+}
+
+.contact-form-inner {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+
+.contact-form-inner label {
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.contact-form-inner input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 7px 9px;
+  border-radius: 10px;
+  border: 1px solid #888;
+  background: #1a1a1a;
+  color: rgba(255, 255, 255, 1);
+  font: inherit;
+}
+
+.contact-form-inner input:focus-visible {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+}
+
+.contact-form-inner button {
+  width: 100%;
+  padding: 0.45em 0.9em;
+  font-size: 0.95em;
+}
+
+/* Cards grid */
+.contacts-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.contact-card {
+  text-align: left;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #888;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.contact-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.contact-name {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.contact-image {
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #888;
+  background: #1a1a1a;
+}
+
+.contact-details {
+  margin-top: 8px;
+  display: grid;
+  gap: 4px;
+}
+
+.contact-detail {
+  margin: 0;
+  word-break: break-word;
+}
+
+.contact-actions {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.contact-btn {
+  width: 100%;
+}
+
+.contact-btn:focus-visible {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+}
+
+/* "Danger" button uses existing accent color only (no new palette) */
+.contact-btn-danger {
+  border-color: #646cff;
+}
+
+@media (max-width: 420px) {
+  .contacts-header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+}

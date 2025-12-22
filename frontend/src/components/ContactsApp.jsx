@@ -149,9 +149,13 @@ export default function ContactsApp() {
 
   //Render
   return (
-    <div>
-      <h1>Hello {currentUser}</h1>
-      <button onClick={handleLogout}>Log out</button>
+    <main className="contacts-app">
+      <header className="contacts-header">
+        <h1 className="contacts-title">Hello {currentUser}</h1>
+        <button className="contacts-logout" onClick={handleLogout}>
+          Log out
+        </button>
+      </header>
       <ContactForm
         name={formData.name}
         email={formData.email}
@@ -162,12 +166,14 @@ export default function ContactsApp() {
         handleOnChange={handleOnChange}
         isEditing={isEditing}
       />
-      <p style={{ color: "green" }}>{postResponse?.message}</p>
+      <p className="contacts-status" role="status">
+        {postResponse?.message}
+      </p>
       <ContactsCardsContainer
         contacts={contactsData}
         handleOnDelete={handleOnDelete}
         handleOnEdit={handleOnEdit}
       />
-    </div>
+    </main>
   );
 }
