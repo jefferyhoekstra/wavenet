@@ -72,7 +72,7 @@ export default function ContactsApp() {
         setIsEditing(false);
       } else {
         await axios
-          .post("http://localhost:3000/contacts", formData)
+          .post("https://wavenet-backend.vercel.app/contacts", formData)
           .then((response) => {
             setPostResponse(response.data);
             console.log(response);
@@ -95,7 +95,7 @@ export default function ContactsApp() {
   const handleOnDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/contacts/${id}`
+        `https://wavenet-backend.vercel.app/contacts/${id}`
       );
       setPostResponse(response.data);
       console.log(response);
@@ -108,7 +108,7 @@ export default function ContactsApp() {
   const handleOnEdit = async (id) => {
     try {
       const contactToEdit = await axios.get(
-        `http://localhost:3000/contacts/${id}`
+        `https://wavenet-backend.vercel.app/contacts/${id}`
       );
       console.log(contactToEdit);
       setFormData({
@@ -129,7 +129,7 @@ export default function ContactsApp() {
   const handleOnUpdate = async (id) => {
     try {
       const result = await axios.patch(
-        `http://localhost:3000/contacts/${id}`,
+        `https://wavenet-backend.vercel.app/contacts/${id}`,
         formData
       );
       setPostResponse({ message: result.data.message, date: result.data.date });
