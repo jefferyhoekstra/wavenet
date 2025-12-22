@@ -27,7 +27,7 @@ export default function FormComponent({
           onChange={handleOnChange}
           value={formData.password}
         />
-        <button>{currentPage === "login" ? "Login" : "Register"}</button>
+        {/* <button>{currentPage === "login" ? "Login" : "Register"}</button> */}
       </form>
       <p>{responseMessage}</p>
       {currentPage === "login" ? (
