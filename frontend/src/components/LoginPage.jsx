@@ -22,7 +22,7 @@ export default function Login() {
   const handleOnLogin = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/login",
+        "https://wavenet-backend.vercel.app/login",
         formData
       );
       Cookies.set("jwt-authorization", response.data.token);
