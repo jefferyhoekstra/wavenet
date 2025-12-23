@@ -1,13 +1,14 @@
+// ------- LIBRARIES ------- \\
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-// ------- CSS ------- \\\
+// ------- CSS ------- \\
 import "./App.css";
 
-/// ---- COMPONENTS
+/// ---- COMPONENTS ------- \\
 import NavBar from "./components/NavBar";
 import LoginPage from "./components/LoginPage";
 import ContactsApp from "./components/ContactsApp";

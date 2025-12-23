@@ -13,9 +13,3 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
-  }
-}
