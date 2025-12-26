@@ -1,0 +1,16 @@
+.app {
+  min-height: 100vh;
+
+  /* background */
+  background-image: linear-gradient(rgba(95, 84, 255, 0)),
+    linear-gradient(rgba(0, 0, 0, 0.4)), url("./assets/images/bg.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* DEFAULT MARGIN REMOVAL */
+.app_header h1,
+.app_header h2 {
+  margin: 0;
+}
