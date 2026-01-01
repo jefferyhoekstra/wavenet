@@ -1,22 +1,32 @@
-/// LIBRARIES
+// IMPORT
+import {
+  Link,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
-/// CSS
+// LIBRARIES
+
+// CSS
 import "./App.css";
 
-/// COMPONENTS
+// COMPONENTS
 import Hero from "./components/Hero/Hero";
+import AppLayout from "./AppLayout";
 
-/// FUNCTIONS
+// FUNCTIONS
 export default function App() {
   return (
     <>
-      <div className="app">
-        <header className="app_header">
-          <Hero />
-        </header>
-        <main className="app_main"></main>
-        <footer className="app_footer"></footer>
-      </div>
+      <Router>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Hero />}></Route>
+          </Route>
+        </Routes>
+      </Router>
     </>
   );
 }

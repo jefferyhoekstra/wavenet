@@ -12,7 +12,6 @@ export default function Hero() {
       <section className="hero_section">
         <div className="hero_title">
           <h1>NetWave</h1>
-          <p>A Blogsite</p>
         </div>
       </section>
     </>

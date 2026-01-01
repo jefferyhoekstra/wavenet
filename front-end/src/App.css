@@ -1,5 +1,5 @@
 .app {
-  min-height: 100vh;
+  height: 100vh;
 
   /* background */
   background-image: linear-gradient(rgba(95, 84, 255, 0)),
